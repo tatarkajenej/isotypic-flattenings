@@ -1,0 +1,10 @@
+load("main.sage")
+
+KS = KroneckerSpace(([3,1,1], [2,2,1], [3,2]), testing_secant=4, verbose=True)
+TD4 = TensorDecomposition.random(4, (3,3,3))
+TD5 = TensorDecomposition.random(5, (3,3,3))
+F4 = KS.flattening(TD4, (0,1), 20, 20)
+F5 = KS.flattening(TD5, (0,1), 20, 20)
+r4 = F4.rank()
+r5 = F5.rank()
+print(r4, r5, r4 < r5)
